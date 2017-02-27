@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">HabitTracker</string>
+    <string name="insert_dummy_data">Insert dummy data</string>
+    <string name="refresh_page">Refresh Page</string>
+    <string name="insert_success">Added a new row successfully. \n Click on refresh</string>
+    <string name="insert_failure">Unable to add a new row</string>
+    <string name="description">Playing Cricket</string>
+</resources>
