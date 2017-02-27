@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             int dayColumnIndex = habitCursor.getColumnIndex(HabitEntry.COLUMN_DAY_OCCURRENCE);
             int weekColumnIndex = habitCursor.getColumnIndex(HabitEntry.COLUMN_WEEK_FREQUENCY);
 
-            while(habitCursor.moveToNext()) {
+            while (habitCursor.moveToNext()) {
                 //get values
                 int id = habitCursor.getInt(idColumnIndex);
                 String name = habitCursor.getString(nameColumnIndex);
@@ -108,5 +108,19 @@ public class MainActivity extends AppCompatActivity {
         } finally {
             habitCursor.close();
         }
+    }
+
+    public Cursor read() {
+        SQLiteDatabase dbReadInstance = habitDbHelper.getReadableDatabase();
+        String[] projection = {
+                HabitEntry.COLUMN_ID,
+                HabitEntry.COLUMN_DESCRIPTION,
+                HabitEntry.COLUMN_NAME,
+                HabitEntry.COLUMN_DAY_OCCURRENCE,
+                HabitEntry.COLUMN_WEEK_FREQUENCY
+        };
+
+        Cursor habitCursor = dbReadInstance.query(HabitEntry.TABLE_NAME, projection, null, null, null, null, null);
+        return habitCursor;
     }
 }
